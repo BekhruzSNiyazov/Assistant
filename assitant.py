@@ -16,7 +16,7 @@ def speak(text):
     print(f"\nAssistant: {text}\n")
     pygame.init()
 
-    pygame.mixer.music.load("test.wav")
+    pygame.mixer.music.load(filename)
 
     pygame.mixer.music.play()
     remove(filename)
