@@ -13,7 +13,7 @@ def speak(text):
     filename = "voice.mp3"
     tts.save(filename)
     print(f"\nAssistant: {text}\n")
-    os.system("mpg123 " + filename)
+    system("mpg123 " + filename)
     remove(filename)
 
 def get_audio():
