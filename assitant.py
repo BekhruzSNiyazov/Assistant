@@ -4,7 +4,6 @@ import speech_recognition as sr
 from gtts import gTTS
 from subprocess import Popen
 from datetime import datetime
-from googletrans import Translator
 from random import randrange
 
 jokes = ["Why did the hipster burn his mouth on his coffee? Because he drank it before it was cool.", "What is the difference between a well-dressed man on a unicycle and a poorly dressed man on a bicycle? Attire."]
@@ -44,16 +43,7 @@ while True:
 
     text = get_audio()
         
-    if "Russian" in text:
-        translator = Translator()
-        text = text.split()
-        text.remove("in")
-        text.remove("russian")
-        text = "".join(text)
-        translations = translator.translate(text, dest="ru")
-        print(translations.text)
-
-    elif "goodbye" in text:
+    if "goodbye" in text:
     	    speak("Goodbye to you to! Say stop to stop.")
 
     elif "stop" in text:
