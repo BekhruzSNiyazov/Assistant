@@ -1,5 +1,5 @@
 from os import remove
-import pyglet
+import pygame
 from time import sleep
 import speech_recognition as sr
 from gtts import gTTS
@@ -14,10 +14,11 @@ def speak(text):
     filename = "voice.mp3"
     tts.save(filename)
     print(f"\nAssistant: {text}\n")
-    music = pyglet.resource.media(filename)
-    music.play()
+    pygame.init()
 
-    pyglet.app.run()
+    pygame.mixer.music.load("test.wav")
+
+    pygame.mixer.music.play()
     remove(filename)
 
 def get_audio():
