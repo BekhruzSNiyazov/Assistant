@@ -17,7 +17,7 @@ def speak(text):
     music = pyglet.resource.media(filename)
     music.play()
 
-pyglet.app.run()
+    pyglet.app.run()
     remove(filename)
 
 def get_audio():
