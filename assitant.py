@@ -1,6 +1,5 @@
-from os import remove
+from os import remove, system
 from time import sleep
-from playsound import playsound
 import speech_recognition as sr
 from gtts import gTTS
 from subprocess import Popen
@@ -15,7 +14,7 @@ def speak(text):
     filename = "voice.mp3"
     tts.save(filename)
     print(f"\nAssistant: {text}\n")
-    playsound(filename)
+    os.system("mpg123 " + filename)
     remove(filename)
 
 def get_audio():
