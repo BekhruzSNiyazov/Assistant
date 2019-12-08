@@ -1,7 +1,6 @@
 from os import remove
 import pygame
 from time import sleep
-import speech_recognition as sr
 from gtts import gTTS
 from subprocess import Popen
 from datetime import datetime
@@ -21,20 +20,6 @@ def speak(text):
     pygame.mixer.music.play()
     remove(filename)
 
-def get_audio():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        audio = r.listen(source)
-        said = ""
-
-        try:
-            said = r.recognize_google(audio)
-            print(f"You: {said}")
-        except Exception as e:
-            print("Exception: " + str(e))
-
-    return said
-
 def note(text):
         date = datetime.now()
         file_name = str(date).replace(":", "-") + "-note.txt"
@@ -46,7 +31,7 @@ speak("How can I help you?")
 
 while True:        
 
-    text = get_audio()
+    text = input()
         
     if "goodbye" in text:
     	    speak("Goodbye to you to! Say stop to stop.")
