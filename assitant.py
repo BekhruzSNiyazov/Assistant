@@ -1,5 +1,4 @@
-from os import remove
-from pygame import mixer
+from os import remove, system
 from time import sleep
 from gtts import gTTS
 from subprocess import Popen
@@ -13,11 +12,7 @@ def speak(text):
     filename = "voice.mp3"
     tts.save(filename)
     print(f"\nAssistant: {text}\n")
-    mixer.init()
-
-    mixer.music.load(filename)
-
-    mixer.music.play()
+    system(f"start {filename}")
     remove(filename)
 
 def note(text):
